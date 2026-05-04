@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@nikawasr</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Geist', sans-serif;
+      background: #08080e;
+      color: #d0d4e4;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+
+    .feather {
+      position: fixed;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      animation: drift linear infinite;
+    }
+    @keyframes drift {
+      0% { opacity: 0; transform: translateY(0) rotate(0deg) translateX(0) scale(1); }
+      10% { opacity: 0.25; }
+      90% { opacity: 0.1; }
+      100% { opacity: 0; transform: translateY(100vh) rotate(360deg) translateX(40px) scale(0.8); }
+    }
+
+    @keyframes animationIn {
+      0% { opacity: 0; transform: translateY(20px); filter: blur(5px); }
+      100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+    .anim-in { animation: animationIn 0.7s ease-out both; }
+    .anim-d1 { animation-delay: 0.05s; }
+    .anim-d2 { animation-delay: 0.15s; }
+    .anim-d3 { animation-delay: 0.25s; }
+    .anim-d4 { animation-delay: 0.35s; }
+    .anim-d5 { animation-delay: 0.45s; }
+    .anim-d6 { animation-delay: 0.55s; }
+    .anim-d7 { animation-delay: 0.65s; }
+    .anim-d8 { animation-delay: 0.75s; }
+    .anim-d9 { animation-delay: 0.85s; }
+    .anim-d10 { animation-delay: 0.95s; }
+    .anim-d11 { animation-delay: 1.05s; }
+    .anim-d12 { animation-delay: 1.15s; }
+    .anim-d13 { animation-delay: 1.25s; }
+    .anim-d14 { animation-delay: 1.35s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    .float { animation: float 5s ease-in-out infinite; }
+
+    @keyframes soft-glow {
+      0%, 100% { box-shadow: 0 0 40px rgba(80,110,180,0.08), 0 0 80px rgba(80,110,180,0.04); }
+      50% { box-shadow: 0 0 60px rgba(80,110,180,0.14), 0 0 120px rgba(80,110,180,0.06); }
+    }
+
+    .profile-img {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(120,150,200,0.15);
+      animation: soft-glow 4s ease-in-out infinite;
+    }
+
+    .social-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 0.875rem;
+      padding: 0.875rem 1.125rem;
+      display: flex; align-items: center; gap: 0.75rem;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+      color: #c0c4d4;
+    }
+    .social-card:hover {
+      border-color: rgba(100,130,200,0.15);
+      background: rgba(255,255,255,0.04);
+      transform: translateY(-2px);
+    }
+    .social-card:active { transform: translateY(0); }
+    .social-card .icon-wrap {
+      width: 38px; height: 38px;
+      border-radius: 0.5rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.35s ease;
+    }
+    .social-card:hover .icon-wrap { transform: scale(1.06); }
+    .social-card .arrow {
+      margin-left: auto;
+      opacity: 0;
+      transform: translateX(-5px);
+      transition: all 0.35s ease;
+      color: #6878a0;
+    }
+    .social-card:hover .arrow {
+      opacity: 0.6;
+      transform: translateX(0);
+    }
+
+    .soft-divider {
+      width: 30px; height: 1px;
+      background: rgba(100,130,200,0.15);
+      border-radius: 99px;
+    }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: #08080e; }
+    ::-webkit-scrollbar-thumb { background: rgba(100,130,200,0.2); border-radius: 99px; }
+  </style>
+</head>
+<body>
+
+  <div id="feathers-container"></div>
+
+  <div class="fixed top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none z-0"
+       style="background: radial-gradient(circle, rgba(60,80,140,0.06) 0%, transparent 70%); filter: blur(80px);"></div>
+
+  <main class="relative z-10 flex flex-col items-center px-4 py-16 md:py-24 max-w-md mx-auto min-h-screen justify-center">
+
+    <div class="anim-in anim-d1 float mb-6">
+      <img src="https://z-cdn-media.chatglm.cn/files/36d772c5-77e1-4877-af9d-8dcdc59018c6.jpg?auth_key=1877856219-382e6b9770f94151970a5d1de7d4f7e7-0-daa253cf8d427c06aa896e0002b9b9db" alt="@nikawasr" class="profile-img" />
+    </div>
+
+    <h1 class="anim-in anim-d2 text-2xl md:text-3xl font-medium tracking-tight text-center" style="color: #d8dce8;">
+      @nikawasr
+    </h1>
+
+    <div class="anim-in anim-d3 soft-divider mt-6 mb-6"></div>
+
+    <div class="w-full flex flex-col gap-2">
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/nikawa_aep/" target="_blank" rel="noopener" class="social-card anim-in anim-d4">
+        <div class="icon-wrap" style="background: rgba(225,48,108,0.1);">
+          <iconify-icon icon="ri:instagram-fill" width="18" style="color:#E1306C;"></iconify-icon>
+        </div>
+        <div>
+          <div class="text-sm font-medium" style="color:#b8bcd0;">Instagram</div>
+          <div class="text-xs" style="color:#606880;">@nikawa_aep</div>
+        </div>
+        <div class="arrow"><iconify-icon icon="ri:arrow-right-up-line" width="14"></iconify-icon></div>
+      </a>
+
+      <!-- X / Twitter -->
+      <a href="https://x.com/NikawaSr" target="_blank" rel="noopener" class="social-card anim-in anim-d5">
+        <div class="icon-wrap" style="background: rgba(255,255,255,0.06);">
+          <iconify-icon icon="ri:twitter-x-fill" width="16" style="color:#e8eaef;"></iconify-icon>
+        </div>
+        <div>
+          <div class="text-sm font-medium" style="color:#b8bcd0;">X / Twitter</div>
+          <div class="text-xs" style="color:#606880;">@NikawaSr</div>
+        </div>
+        <div class="arrow"><iconify-icon icon="ri:arrow-right-up-line" width="14"></iconify-icon></div>
+      </a>
+
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@nikawasr" target="_blank" rel="noopener" class="social-card anim-in anim-d5">
+        <div class="icon-wrap" style="background: rgba(255,255,255,0.05);">
+          <iconify-icon icon="ri:tiktok-fill" width="22" style="color:#fff;"></iconify-icon>
+        </div>
+        <div>
+          <div class="text-sm font-medium" style="color:#b8bcd0;">TikTok</div>
+          <div class="text-xs" style="color:#606880;">@nikawasr</div>
+        </div>
+        <div class="arrow"><iconify-icon icon="ri:arrow-right-up-line" width="14" style="color:#c084fc;"></iconify-icon></div>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@nikawasr" target="_blank" rel="noopener" class="social-card anim-in anim-d6">
+        <div class="icon-wrap" style="background: rgba(180,50,50,0.08);">
+          <iconify-icon icon="ri:youtube-fill" width="18" style="color:#b43232;"></iconify-icon>
+        </div>
+        <div>
+          <div class="text-sm font-medium" style="color:#b8bcd0;">YouTube</div>
+          <div class="text-xs" style="color:#606880;">@nikawasr</div>
+        </div>
+        <div class="arrow"><iconify-icon icon="ri:arrow-right-up-line" width="14"></iconify-icon></div>
+      </a>
+
+      <!-- Discord -->
+      <a href="https://discord.gg/PYwUAmKe" target="_blank" rel="noopener" class="social-card anim-in anim-d7">
+        <div class="icon-wrap" style="background: rgba(88,101,242,0.1);">
+          <iconify-icon icon="ri:discord-fill" width="18" style="color:#5865F2;"></iconify-icon>
+        </div>
+        <div>
+          <div class="text-sm font-medium" style="color:#b8bcd0;">Discord</div>
+          <div class="text-xs" style="color:#606880;">Join the server</div>
+        </div>
+        <div class="arrow"><iconify-icon icon="ri:arrow-right-up-line" width="14"></iconify-icon></div>
+      </a>
+
+      <!-- Twitch -->
+      <a href="https://www.twitch.tv/nikawasr" target="_blank" rel="noopener" class="social-card anim-in anim-d7">
+        <div class="icon-wrap" style="background: rgba(145,70,255,0.1);">
+          <iconify-icon icon="ri:twitch-fill" width="18" style="color:#9146FF;"></iconify-icon>
+        </div>
+        <div>
+          <div class="text-sm font-medium" style="color:#b8bcd0;">Twitch</div>
+          <div class="text-xs" style="color:#606880;">nikawasr</div>
+        </div>
+        <div class="arrow"><iconify-icon icon="ri:arrow-right-up-line" width="14"></iconify-icon></div>
+      </a>
+
+      <!-- Spotify -->
+      <a href="https://open.spotify.com/user/312xf57lnnnuq5rxrztabpwt2qoe?si=d4da7c45bd1c4021" target="_blank" rel="noopener" class="social-card anim-in anim-d8">
+        <div class="icon-wrap" style="background: rgba(30,215,96,0.08);">
+          <iconify-icon icon="ri:spotify-fill" width="18" style="color:#1DB954;"></iconify-icon>
+        </div>
+        <div>
+          <div class="text-sm font-medium" style="color:#b8bcd0;">Spotify</div>
+          <div class="text-xs" style="color:#606880;">My playlists</div>
+        </div>
+        <div class="arrow"><iconify-icon icon="ri:arrow-right-up-line" width="14"></iconify-icon></div>
+      </a>
+
+      <!-- SoundCloud -->
+      <a href="https://soundcloud.com/nikawa-sr" target="_blank" rel="noopener" class="social-card anim-in anim-d8">
+        <div class="icon-wrap" style="background: rgba(255,85,0,0.08);">
+          <iconify-icon icon="ri:soundcloud-fill" width="18" style="color:#FF5500;"></iconify-icon>
+        </div>
+        <div>
+          <div class="text-sm font-medium" style="color:#b8bcd0;">SoundCloud</div>
+          <div class="text-xs" style="color:#606880;">nikawa-sr</div>
+        </div>
+        <div class="arrow"><iconify-icon icon="ri:arrow-right-up-line" width="14"></iconify-icon></div>
+      </a>
+
+      <!-- Steam -->
+      <a href="https://steamcommunity.com/profiles/76561199864648236/" target="_blank" rel="noopener" class="social-card anim-in anim-d9">
+        <div class="icon-wrap" style="background: rgba(102,192,244,0.08);">
+          <iconify-icon icon="ri:steam-fill" width="18" style="color:#66C0F4;"></iconify-icon>
+        </div>
+        <div>
+          <div class="text-sm font-medium" style="color:#b8bcd0;">Steam</div>
+          <div class="text-xs" style="color:#606880;">My profile</div>
+        </div>
+        <div class="arrow"><iconify-icon icon="ri:arrow-right-up-line" width="14"></iconify-icon></div>
+      </a>
+
+      <!-- Pinterest -->
+      <a href="https://pin.it/70jM3OZGU" target="_blank" rel="noopener" class="social-card anim-in anim-d10">
+        <div class="icon-wrap" style="background: rgba(230,0,35,0.08);">
+          <iconify-icon icon="ri:pinterest-fill" width="18" style="color:#E60023;"></iconify-icon>
+        </div>
+        <div>
+          <div class="text-sm font-medium" style="color:#b8bcd0;">Pinterest</div>
+          <div class="text-xs" style="color:#606880;">Anime boards</div>
+        </div>
+        <div class="arrow"><iconify-icon icon="ri:arrow-right-up-line" width="14"></iconify-icon></div>
+      </a>
+
+      <!-- GitHub -->
+      <a href="https://github.com/nikawasr246-design" target="_blank" rel="noopener" class="social-card anim-in anim-d10">
+        <div class="icon-wrap" style="background: rgba(255,255,255,0.06);">
+          <iconify-icon icon="ri:github-fill" width="18" style="color:#e0e2e8;"></iconify-icon>
+        </div>
+        <div>
+          <div class="text-sm font-medium" style="color:#b8bcd0;">GitHub</div>
+          <div class="text-xs" style="color:#606880;">nikawasr246-design</div>
+        </div>
+        <div class="arrow"><iconify-icon icon="ri:arrow-right-up-line" width="14"></iconify-icon></div>
+      </a>
+
+    </div>
+
+    <footer class="anim-in anim-d11 mt-10 flex items-center gap-2" style="color: #383c50; font-size: 0.65rem; letter-spacing: 0.08em;">
+      <span>·</span>
+      <span>nikawasr</span>
+      <span>·</span>
+    </footer>
+
+  </main>
+
+  <script>
+    const fc = document.getElementById('feathers-container');
+    function createFeather() {
+      const f = document.createElement('div');
+      f.classList.add('feather');
+      const size = Math.random() * 6 + 3;
+      const left = Math.random() * 100;
+      const dur = Math.random() * 12 + 14;
+      const delay = Math.random() * 8;
+      f.style.cssText = `
+        left: ${left}%;
+        top: -20px;
+        width: ${size}px;
+        height: ${size * 1.6}px;
+        background: rgba(180,190,220,0.3);
+        border-radius: 50% 50% 50% 0;
+        animation-duration: ${dur}s;
+        animation-delay: ${delay}s;
+      `;
+      fc.appendChild(f);
+      setTimeout(() => f.remove(), (dur + delay) * 1000);
+    }
+    for (let i = 0; i < 8; i++) createFeather();
+    setInterval(() => createFeather(), 3000);
+  </script>
+</body>
+</html>
